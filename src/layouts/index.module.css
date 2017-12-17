@@ -1,0 +1,19 @@
+.header {
+  background-color: rebeccapurple;
+}
+.headerNav {
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 0.45rem 1.0875rem;
+}
+.headerNavLink {
+  margin: 0;
+  color: gainsboro;
+  text-decoration: none;
+}
+.callToActionContainer {
+  padding: 0px 1.0875rem 1.45rem;
+  padding-top: 0;
+  height: 768px;
+  width: 100%;
+}

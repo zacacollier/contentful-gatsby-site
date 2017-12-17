@@ -1,48 +1,70 @@
 import React from 'react'
-import { map } from 'lodash'
-import uuidv4 from 'uuid'
-import Link from 'gatsby-link'
+import PropTypes from 'prop-types'
+import css from './index.module.css'
 
-const Index = ({ data: { allContentfulHomePage, allContentfulAsset }}) => (
-  <div>
+const Images = ({ edges }) => (
+  <div className={css.callToActionImage}>
     {
-      map(allContentfulHomePage.edges, ({ node }, key) => (
-        <div key={uuidv4()}>
-          <h1>{node.callToAction}</h1>
-          <h2>{node.callToActionSubtitle}</h2>
-        </div>
-      ))
+      [
+        'iphone',
+        'android',
+      ].map((title, index) =>
+        <img
+          className={css[`callToAction${title}`]}
+          key={index}
+          src={edges.find(({ node }) => node.title === title).node.sizes.src}
+        />
+      )
     }
-    {console.log(allContentfulAsset)}
-    <img src={allContentfulAsset.edges[0].node.file.url} />
-    <blockquote>{allContentfulAsset.edges[0].node.description}</blockquote>
-    <Link to="/page-2/">Go to page 2</Link>
   </div>
 )
+Images.propTypes = {
+  edges: PropTypes.array.isRequired,
+}
 
-export const query = graphql`
+const Index = ({
+  data: {
+    contentfulHomePage: {
+      callToAction,
+      callToActionSubtitle,
+    },
+    allContentfulAsset: {
+      edges,
+    },
+  }
+}) => (
+  <div className={css.callToAction}>
+    <div className={css.callToActionCopy}>
+      <h1>{callToAction}</h1>
+      <h2>{callToActionSubtitle}</h2>
+    </div>
+    <Images
+      edges={edges}
+    />
+  </div>
+)
+Index.propTypes = {
+  data: PropTypes.object.isRequired,
+}
+export const IndexPageQuery = graphql`
   query IndexPageQuery {
-    allContentfulHomePage {
-      edges {
-        node {
-          callToAction
-          callToActionSubtitle
-        }
-      }
+    contentfulHomePage {
+      callToAction
+      callToActionSubtitle
     }
     allContentfulAsset {
       edges {
         node {
-          file {
-            url
-            fileName
-            contentType
+          id
+          title
+          sizes (maxWidth: 305, maxHeight: 641) {
+            sizes
+            src
+            srcSet
           }
-          description
         }
       }
     }
   }
 `
-
 export default Index

@@ -7,12 +7,13 @@ const {
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby-Contentful Proof-of-Concept`,
+    title: 'Gatsby-Contentful Proof-of-Concept',
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components',
     {
-      resolve: `gatsby-source-contentful`,
+      resolve: 'gatsby-source-contentful',
       options: {
         spaceId: CONTENTFUL_SPACE_ID,
         accessToken: CONTENTFUL_ACCESS_TOKEN,

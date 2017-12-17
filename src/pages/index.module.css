@@ -1,0 +1,33 @@
+.callToAction {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.callToActionCopy {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 15px;
+}
+.callToActionImage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 0 15px;
+}
+.callToActioniphone {
+  position: absolute;
+  right: 500px;
+  z-index: 2;
+}
+.callToActionandroid {
+  position: absolute;
+  right: 420px;
+}
