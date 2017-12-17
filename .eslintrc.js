@@ -1,10 +1,11 @@
 module.exports = {
-  "plugins": ["jest"],
   "extends": "airbnb-base",
   "env": {
     "node": true,
     "jasmine": true,
-    "jest": true,
+  },
+  "globals": {
+    "graphql": true,
   },
   "rules": {
     "semi": ["error", "never"],

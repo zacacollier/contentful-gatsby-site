@@ -1,13 +1,11 @@
-# gatsby-starter-default
-The default Gatsby starter
-
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/)
-
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-```
-gatsby new gatsby-example-site
+# install
+```shell
+  yarn
 ```
 
-## Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+# develop
+Start a HMR server:
+```shell
+  yarn develop
+```
+You'll be able to view the app [here](http://localhost:8000) and browse content from the CMS in [GraphiQL](http://localhost:8000/___graphql).
