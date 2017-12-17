@@ -3,8 +3,13 @@
   yarn
 ```
 
+# set env vars
+```shell
+  mv .env.example .env
+  vi .env
+```
+
 # develop
-Start a HMR server:
 ```shell
   yarn develop
 ```
